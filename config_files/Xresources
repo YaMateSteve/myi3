@@ -1,5 +1,5 @@
 ! rxvt terminal config file
-
+URxvt.scrollBar: false
 ! Font
 URxvt.font: xft:monaco:size=10
 
