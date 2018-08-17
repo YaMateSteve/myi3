@@ -1,0 +1,11 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+#PS1='[\u@\h \W]\$ '
+#         [          steven      @          archPC       directory   ]          $           "text"
+PS1='\[\e[31m[\]\[\e[35m\u\]\[\e[32m@\]\[\e[36m\h\] \[\e[34m\W\]\[\e[31m]\]\[\e[33m\$\]\[\e[37m \]'
