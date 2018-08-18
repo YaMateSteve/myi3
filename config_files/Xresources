@@ -46,5 +46,3 @@ URxvt.font: xft:monaco:size=10
 
 !! Keybindings
 
-URxvt.keysym.Control-Shift-C  : perl:clipboard:copy
-URxvt.keysym.Control-Shift-V  : perl:clipboard:paste
