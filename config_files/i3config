@@ -57,17 +57,37 @@ bindsym $mod+o exec libreoffice --nologo
 assign [class="libreoffice"] $ws5
 for_window [class="libreoffice"] border pixel 0
 
-# Python idle editor
+# Python idle editorbindsym $mod+Shift+h move left 30
 bindsym $mod+p exec idle -e
 for_window [class="Toplevel"] border pixel 0
-for_window [class="Toplevel"] floating enable move right 361px, move up 54px
+#for_window [class="Toplevel"] floating enable move right 361px, move up 54px
 for_window [class="Toplevel"] resize set 600 700
+# Turtle window
+for_window [class="Tk"] floating enable
 
 # Ranger
 bindsym $mod+r $term -e ranger
 
 # Dropdown terminal
 bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
+
+# Change gaps 
+bindsym $mod+z gaps outer current plus 5; gaps inner current plus 5
+bindsym $mod+x gaps outer current minus 5; gaps inner current minus 5
+
+# Move window
+bindsym $mod+Shift+Left move left 30
+bindsym $mod+Shift+Down move down 30
+bindsym $mod+Shift+Up move up 30
+bindsym $mod+Shift+Right move right 30
+
+# Resize window
+bindsym $mod+Shift+h resize shrink width
+bindsym $mod+Shift+j resize shrink height
+bindsym $mod+Shift+k resize grow height
+bindsym $mod+Shift+l resize grow width
+bindsym $mod+Shift+z resize grow height; resize grow width
+bindsym $mod+Shift+x resize shrink height; resize shrink width
 
 # change focus
 bindsym $mod+h focus left
@@ -81,17 +101,6 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+Shift+v split h
@@ -101,17 +110,6 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-
-# Resize window
-bindsym $mod+Ctrl+Left resize shrink width
-bindsym $mod+Ctrl+Down resize grow height
-bindsym $mod+Ctrl+Up resize shrink height
-bindsym $mod+Ctrl+Right resize grow width
-
-bindsym $mod+Ctrl+h resize shrink width
-bindsym $mod+Ctrl+j resize grow height
-bindsym $mod+Ctrl+k resize shrink height
-bindsym $mod+Ctrl+l resize grow width
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -218,14 +216,15 @@ client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-col
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
 client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          #00ff00
 
+###############
 ### BORDERS ###
-
-
-gaps inner 15
-for_window [class="^.*"] hide_edge_borders both
+###############
+gaps outer 10
+gaps inner 10
+#for_window [class="^.*"] hide_edge_borders both
 for_window [instance="terminal"] border pixel 0
 for_window [class="Firefox"] border pixel 0
-for_window [class="Firefox"] hide_edge_borders both
+#for_window [class="Firefox"] hide_edge_borders both
 
 
 
