@@ -60,6 +60,8 @@ for_window [class="libreoffice"] border pixel 0
 # Python idle editor
 bindsym $mod+p exec idle -e
 for_window [class="Toplevel"] border pixel 0
+for_window [class="Toplevel"] floating enable move right 361px, move up 54px
+for_window [class="Toplevel"] resize set 600 700
 
 # Ranger
 bindsym $mod+r $term -e ranger
@@ -218,9 +220,9 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 
 ### BORDERS ###
 
-hide_edge_borders both
+
 gaps inner 15
-#for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] hide_edge_borders both
 for_window [instance="terminal"] border pixel 0
 for_window [class="Firefox"] border pixel 0
 for_window [class="Firefox"] hide_edge_borders both
