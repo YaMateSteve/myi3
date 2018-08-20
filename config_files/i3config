@@ -17,19 +17,20 @@ set $browser  exec firefox
 
 ## DROPDOWN WINDOWS ##
 
+# Dropdown terminal - $mod+u #
 for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] resize set 625 460
 for_window [instance="dropdown"] move scratchpad
 for_window [instance="dropdown"] border pixel 3
 exec --no-startup-id $altterm -name dropdown
-bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 
+# Math teminal (python shell) - $mod+i #
 for_window [instance="math"] floating enable
 for_window [instance="math"] resize set 800 400
 for_window [instance="math"] move scratchpad
 for_window [instance="math"] border pixel 3
 exec --no-startup-id $altterm -name math -fn xft:monaco:pixelsize=24 -e python -q
-bindsym $mod+i [instance="math"] scratchpad show; [instance="math"] move position center
+
 
 
 ################## 
@@ -48,13 +49,23 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 
-# libre office
+# Math terminal (python shell)
+bindsym $mod+i [instance="math"] scratchpad show; [instance="math"] move position center
+
+# Libre office
 bindsym $mod+o exec libreoffice --nologo
 assign [class="libreoffice"] $ws5
 for_window [class="libreoffice"] border pixel 0
 
-# ranger
+# Python idle editor
+bindsym $mod+p exec idle -e
+for_window [class="Toplevel"] border pixel 0
+
+# Ranger
 bindsym $mod+r $term -e ranger
+
+# Dropdown terminal
+bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 
 # change focus
 bindsym $mod+h focus left
