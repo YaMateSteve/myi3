@@ -1,12 +1,12 @@
 #!/bin/bash
 
-mgit=~/mygit/config_files/
+i3=~/myi3/config_files/
 
-cp ~/.Xresources $mgit/Xresources
-cp ~/.config/i3/config $mgit/i3config
-cp ~/.bashrc $mgit/bashrc
+cp ~/.Xresources $i3/Xresources
+cp ~/.config/i3/config $i3/i3config
+cp ~/.bashrc $i3/bashrc
 
-git add ~/mygit
+git add ~/myi3
 git commit -m "i3 config"
 git push origin master
 
