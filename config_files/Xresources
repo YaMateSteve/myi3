@@ -1,16 +1,17 @@
-! rxvt terminal config file
+!! rxvt terminal config file
 
 !! Window look
 URxvt.scrollBar: false
 URxvt.transparent: true
 URxvt.shading: 30
+!!URxvt.letterSpace: -3.5
 
 !! Font
-URxvt.font: xft:monaco:size=10
+URxvt.font: xft:Cantarell Regular:size=12
 
 !! Colours
-#URxvt*background: black
-#URxvt*foreground: 
+!!URxvt*background: black
+!!URxvt*foreground: 
 
 ! special
 *.foreground:   #a39e9b

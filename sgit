@@ -1,0 +1,12 @@
+#!/bin/bash
+
+mgit=~/mygit/SteveHQ/config_files/
+
+cp ~/.Xresources $mgit/Xresources
+cp ~/.config/i3/config $mgit/i3config
+cp ~/.bashrc $mgit/bashrc
+
+git add ~/mygit/SteveHQ
+git commit -m "i3 config"
+git push origin master
+

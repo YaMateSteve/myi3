@@ -1,0 +1,10 @@
+#!/bin/bash
+
+pacman -Sy intel-ucode xf86-input-synaptics networkmanager network-manager-applet ttf-liberation dmenu ranger gedit compton 
+feh lxappearance
+
+systemctl enable NetworkManager.service
+systemctl disable dhcpcd@eno1.service
+systemctl disable netctl-auto@wlo1.service
+
+
