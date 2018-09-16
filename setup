@@ -1,12 +1,21 @@
 #!/bin/bash
 
+##Downloads
 pacman -Sy intel-ucode xf86-input-synaptics networkmanager network-manager-applet ttf-liberation dmenu ranger gedit compton 
 feh lxappearance
 
+## Distribute config files
+cp config_files/i3config ~/.config/i3/config
+cp config_files/Xresources ~/.Xresources
+cp config_files/bashrc ~/.bashrc
+
+## Enable wifi applet
 systemctl enable NetworkManager.service
 systemctl disable dhcpcd@eno1.service
 systemctl disable netctl-auto@wlo1.service
+echo 'wifi enabled'
 
+## Setup touchpad
 echo '
 Section "InputClass"
     Identifier "touchpad"
@@ -15,3 +24,4 @@ Section "InputClass"
         Option "TapButton1" "1"
         Option "TapButton2" "3"
 EndSection' >> /usr/share/X11/xorg.conf.d/70-synaptics.conf
+echo 'tap to click enabled'
