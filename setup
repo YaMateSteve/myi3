@@ -7,4 +7,11 @@ systemctl enable NetworkManager.service
 systemctl disable dhcpcd@eno1.service
 systemctl disable netctl-auto@wlo1.service
 
-
+echo '
+Section "InputClass"
+    Identifier "touchpad"
+    Driver "synaptics"
+    MatchIsTouchpad "on"
+        Option "TapButton1" "1"
+        Option "TapButton2" "3"
+EndSection' >> /usr/share/X11/xorg.conf.d/70-synaptics.conf
