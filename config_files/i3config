@@ -11,7 +11,7 @@ floating_modifier $mod
 ######################
 ## PROGRAM BINDINGS ##
 ######################
-set $term     exec urxvt -name terminal   
+set $term     exec urxvt -name terminal
 set $altterm  exec urxvt
 set $browser  exec firefox
 
@@ -33,11 +33,11 @@ exec --no-startup-id $altterm -name math -fn xft:monaco:pixelsize=24 -e python -
 
 
 
-################## 
+##################
 ## KEY BINDINGS ##
 ##################
 
-# start a terminal
+# Open terminal
 bindsym $mod+Return $term
 
 ## switch windows back and forth
@@ -46,7 +46,11 @@ bindsym $mod+Tab workspace back_and_forth
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
+# Atom
+bindsym $mod+a exec atom
+for_window [class="Atom"] border pixel 0
+
+# dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run -l 10
 
 # Math terminal (python shell)
@@ -54,7 +58,6 @@ bindsym $mod+i [instance="math"] scratchpad show; [instance="math"] move positio
 
 # Libre office
 bindsym $mod+o exec libreoffice --nologo
-assign [class="libreoffice"] $ws5
 for_window [class="libreoffice"] border pixel 0
 
 # Python idle editorbindsym $mod+Shift+h move left 30
@@ -62,6 +65,7 @@ bindsym $mod+p exec idle -e
 for_window [class="Toplevel"] border pixel 0
 #for_window [class="Toplevel"] floating enable move right 361px, move up 54px
 for_window [class="Toplevel"] resize set 600 700
+
 # Turtle window
 for_window [class="Tk"] floating enable
 
@@ -71,7 +75,7 @@ bindsym $mod+r $term -e ranger
 # Dropdown terminal
 bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 
-# Change gaps 
+# Change gaps
 bindsym $mod+z gaps outer current plus 5; gaps inner current plus 5
 bindsym $mod+x gaps outer current minus 5; gaps inner current minus 5
 
@@ -95,7 +99,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use 
+# alternatively, you can use
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -123,8 +127,8 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
- 
+bindsym $mod+b focus parent
+
 # focus the child container
 #bindsym $mod+d focus child
 
@@ -132,14 +136,14 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: "
 set $ws2 "2: "
-set $ws3 "3"
+set $ws3 "3: "
 set $ws4 "4"
-set $ws5 "5: Office"
+set $ws5 "5: "
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "Config"
+set $ws10 "10: Config"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -219,8 +223,8 @@ bar {
 
 ###########################
 ### WALLPAPER / EFFECTS ###
-###########################     
-            
+###########################
+
 exec --no-startup-id feh --bg-max ~/Pictures/image4.jpg
 exec compton -f
 
@@ -231,12 +235,15 @@ exec compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id i3-msg 'workspace $ws1; $browser'
 exec --no-startup-id i3-msg 'workspace $ws2; $term'
-exec --no-startup-id i3-msg 'workspace $ws10; exec gedit ~/.config/i3/config + ~/.Xresources + ~/.bashrc'
+exec --no-startup-id i3-msg 'workspace $ws10; exec gedit ~/.config/i3/config + ~/.Xresources + ~/.bashrc + ~/myi3/keybindings.txt'
+
 ### Assign workspaces ###
 
 assign [class="Firefox"] $ws1
+assign [class="Atom"] $ws3 
+assign [class="libreoffice"] $ws5
 
-	
+
 ### Audio ###
 
 # Pulse Audio mechanical buttons config
@@ -246,9 +253,4 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 
 # Other stuff
 workspace_auto_back_and_forth yes
-
-
-
-
-
 

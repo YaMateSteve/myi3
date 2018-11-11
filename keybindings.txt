@@ -1,0 +1,21 @@
+
+Key set-up
+
+$Mod + Return = Terminal
+$Mod + a = Atom
+$Mod + b = Focus parent
+$Mod + c =
+$Mod + d = Dmenu
+$Mod + e =
+$Mod + f =
+$Mod + g =
+$Mod + h =
+$Mod + i =
+$Mod + j =
+$Mod + k =
+$Mod + l =
+$Mod + m =
+$Mod + n =
+$Mod + o =
+$Mod + p =
+
