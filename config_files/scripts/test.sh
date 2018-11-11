@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-echo ${browser}
+echo ps | grep -c libreoffice
