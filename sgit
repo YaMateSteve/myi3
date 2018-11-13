@@ -6,8 +6,8 @@ cp ~/.Xresources $i3/Xresources
 cp ~/.config/i3/config $i3/i3config
 cp ~/.bashrc $i3/bashrc
 cp ~/.config/i3/i3blocks.config $i3/i3blocks.conf
-cp ~/.scripts/i3blocks myi3/scripts/i3blocks
-cp ~/.scripts/i3config myi3/scripts/i3config
+cp -r ~/.scripts/i3blocks myi3/scripts/i3blocks
+cp -r ~/.scripts/i3config myi3/scripts/i3config
 
 
 git add ~/myi3
