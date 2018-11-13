@@ -77,8 +77,8 @@ bindsym $mod+r $term -e ranger
 bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 
 # Change gaps
-bindsym $mod+z gaps outer current plus 5; gaps inner current plus 5
-bindsym $mod+x gaps outer current minus 5; gaps inner current minus 5
+bindsym $mod+Shift+z gaps outer current plus 5; gaps inner current plus 5
+bindsym $mod+Shift+x gaps outer current minus 5; gaps inner current minus 5
 
 # Move window
 bindsym $mod+Shift+Left move left 30
@@ -91,8 +91,8 @@ bindsym $mod+Shift+h resize shrink width
 bindsym $mod+Shift+j resize shrink height
 bindsym $mod+Shift+k resize grow height
 bindsym $mod+Shift+l resize grow width
-bindsym $mod+Shift+z resize grow height; resize grow width
-bindsym $mod+Shift+x resize shrink height; resize shrink width
+bindsym $mod+z resize grow height; resize grow width
+bindsym $mod+x resize shrink height; resize shrink width
 
 # change focus
 bindsym $mod+h focus left
@@ -147,11 +147,11 @@ set $ws9 "9"
 set $ws10 "10: Config"
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1; exec ~/myi3/config_files/scripts/browser.sh
+bindsym $mod+1 workspace $ws1; exec ~/.scripts/i3config/browser.sh
 bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3; exec ~/myi3/config_files/scripts/atom.sh
+bindsym $mod+3 workspace $ws3; exec ~/.scripts/i3config/atom.sh
 bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5; exec ~/myi3/config_files/scripts/libreoffice.sh
+bindsym $mod+5 workspace $ws5; exec ~/.scripts/i3config/libreoffice.sh
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
@@ -187,10 +187,10 @@ set $urgent-bg-color     #e53935
 
 #window colours
 #                       Border             Background         Text                 Indicator
-client.focused          $bg-color          $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          #00ff00
+client.focused          $bg-color          $bg-color          $text-color          #3b5998
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #3b5998
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #3b5998
+client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          #3b5998
 
 ###############
 ### BORDERS ###
@@ -200,7 +200,9 @@ gaps outer 10
 gaps inner 10
 for_window [class="^.*"] hide_edge_borders both
 for_window [instance="terminal"] border pixel 0
-for_window [class="$browser_class"] border pixel 0; hide_edge_borders both
+for_window [class="Firefox"] border pixel 0; hide_edge_borders both
+for_window [class="feh"] border pixel 0; hide_edge_borders both
+for_window [instance="active"] border pixel 5
 
 
 
@@ -208,9 +210,10 @@ for_window [class="$browser_class"] border pixel 0; hide_edge_borders both
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        #status_command i3status
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
-	font pango: Cantarell, Font Awesome 5 Free 12
+	font pango: Cantarell, Font Awesome 5 Free 10
 
         colors{
                background $bg-color
@@ -236,7 +239,7 @@ exec compton -f
 exec --no-startup-id nm-applet
 #exec --no-startup-id i3-msg 'workspace $ws1; $browser'
 exec --no-startup-id i3-msg 'workspace $ws2; $term'
-exec --no-startup-id i3-msg 'workspace $ws10; exec gedit ~/.config/i3/config + ~/.Xresources + ~/.bashrc + ~/myi3/keybindings.txt'
+#exec --no-startup-id i3-msg 'workspace $ws10; exec gedit ~/.config/i3/config + ~/.Xresources + ~/.bashrc + ~/myi3/keybindings.txt'
 
 ### Assign workspaces ###
 

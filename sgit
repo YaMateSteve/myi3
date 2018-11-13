@@ -5,6 +5,8 @@ i3=~/myi3/config_files/
 cp ~/.Xresources $i3/Xresources
 cp ~/.config/i3/config $i3/i3config
 cp ~/.bashrc $i3/bashrc
+cp -r ~/.scripts myi3/scripts
+cp ~/.config/i3/i3blocks.config $i3/i3blocks.conf
 
 git add ~/myi3
 git commit -m "i3 config"

@@ -1,13 +1,14 @@
 #!/bin/bash
 
 ##Downloads
-pacman -Sy intel-ucode xf86-input-synaptics networkmanager network-manager-applet ttf-liberation ttf-font-awesome dmenu 
+pacman -Sy intel-ucode xf86-input-synaptics networkmanager network-manager-applet ttf-liberation ttf-font-awesome dmenu upower
 ranger gedit compton feh lxappearance
 
 ## Distribute config files
 cp config_files/i3config ~/.config/i3/config
 cp config_files/Xresources ~/.Xresources
 cp config_files/bashrc ~/.bashrc
+chown $USER ~/.config/i3/config ~/.Xresources ~/.bashrc
 
 ## Enable wifi applet
 systemctl enable NetworkManager.service
