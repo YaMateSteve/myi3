@@ -3,7 +3,7 @@
 !! Window look
 URxvt.scrollBar: false
 URxvt.transparent: true
-URxvt.shading: 30
+URxvt.shading: 10
 !!URxvt.letterSpace: -3.5
 
 !! Font
@@ -11,7 +11,7 @@ URxvt.font: xft:Cantarell Regular:size=12
 
 !! Colours
 !!URxvt*background: black
-!!URxvt*foreground: 
+!!URxvt*foreground:
 
 ! special
 *.foreground:   #a39e9b
@@ -19,31 +19,30 @@ URxvt.font: xft:Cantarell Regular:size=12
 *.cursorColor:  magenta
 
 ! black
-*.color0:       #2f1e2e
-*.color8:       #776e71
+*.color0:       #ffffff
+*.color8:       #ffffff
 ! red
-*.color1:       #ef6155
-*.color9:       #ef6155
+*.color1:       #cc4e43
+*.color9:       #cc4e43
 ! green
-*.color2:       #48b685
-*.color10:      #48b685
+*.color2:       #16dd2a
+*.color10:      #16dd2a
 ! yellow
-*.color3:       #fec418
-*.color11:      #fec418
+*.color3:       #d0ff00
+*.color11:      #d0ff00
 ! blue
-*.color4:       #06b6ef
-*.color12:      #06b6ef
+*.color4:       #5294e2
+*.color12:      #5294e2
 ! magenta
-*.color5:       #815ba4
-*.color13:      #815ba4
+*.color5:       #f842ff
+*.color13:      #f842ff
 ! cyan
-*.color6:       #5bc4bf
-*.color14:      #5bc4bf
+*.color6:       #00fff6
+*.color14:      #00fff6
 ! white
-*.color7:       #a39e9b
-*.color15:      #e7e9db
+*.color7:       #ffffff
+*.color15:      #ffffff
 
 
 
 !! Keybindings
-

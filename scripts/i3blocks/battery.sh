@@ -2,7 +2,7 @@
 
 # Get reamining battery percentage
 bat_percent=$(acpi | grep -o '[0-9]\{2,3\}[%]')
-bat=$(acpi | grep -o '[0-9]\{2,3\}[%]' | grep -o '[0-9]\{2,3\}')
+bat=$(echo $bat_percent | grep -o '[0-9]\{2,3\}')
 
 if [ $bat -gt 90 ]; then
 	echo "_$bat_percent"

@@ -14,7 +14,7 @@ floating_modifier $mod
 set $term     exec urxvt -name terminal
 set $altterm  exec urxvt
 set $browser  exec firefox
-set $browser_class Firefox 
+set $browser_class Firefox
 
 ## DROPDOWN WINDOWS ##
 
@@ -135,16 +135,16 @@ bindsym $mod+b focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: "
-set $ws2 "2: "
-set $ws3 "3: "
+set $ws1 ""
+set $ws2 ""
+set $ws3 ""
 set $ws4 "4"
-set $ws5 "5: "
+set $ws5 ""
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10: Config"
+set $ws10 "Config"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1; exec ~/.scripts/i3config/browser.sh
@@ -156,7 +156,7 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10; exec ~/myi3/config_files/scripts/config.sh
+bindsym $mod+0 workspace $ws10; exec ~/.scripts/i3config/config.sh
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -178,7 +178,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Set colours
-
+set $active_border       #5294e2
+set $inactive_border     #000000
 set $bg-color            #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
@@ -187,8 +188,8 @@ set $urgent-bg-color     #e53935
 
 #window colours
 #                       Border             Background         Text                 Indicator
-client.focused          $bg-color          $bg-color          $text-color          #3b5998
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #3b5998
+client.focused          $active_border     $active_border     $text-color          #ab79c6
+client.unfocused        $inactive_border   $inactive_border   $inactive-text-color #3b5998
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #3b5998
 client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          #3b5998
 
@@ -196,10 +197,11 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 ### BORDERS ###
 ###############
 
-gaps outer 10
+gaps outer 0
 gaps inner 10
-for_window [class="^.*"] hide_edge_borders both
-for_window [instance="terminal"] border pixel 0
+for_window [class="^.*"] border pixel 1
+for_window [instance="terminal"] border pixel 1
+for_window [class="Atom"] border pixel 1
 for_window [class="Firefox"] border pixel 0; hide_edge_borders both
 for_window [class="feh"] border pixel 0; hide_edge_borders both
 for_window [instance="active"] border pixel 5
@@ -219,8 +221,8 @@ bar {
                background $bg-color
                separator  #757575
                #                  Border             Background         Text
-               focused_workspace  $bg-color          $bg-color          $text-color
-               inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+               focused_workspace  $bg-color          $bg-color          $active_border
+               inactive_workspace $inactive-bg-color $inactive-bg-color #366666
                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
         }
 }
@@ -237,14 +239,12 @@ exec compton -f
 #######################
 
 exec --no-startup-id nm-applet
-#exec --no-startup-id i3-msg 'workspace $ws1; $browser'
 exec --no-startup-id i3-msg 'workspace $ws2; $term'
-#exec --no-startup-id i3-msg 'workspace $ws10; exec gedit ~/.config/i3/config + ~/.Xresources + ~/.bashrc + ~/myi3/keybindings.txt'
 
 ### Assign workspaces ###
 
 assign [class="$browser_class"] $ws1
-assign [class="Atom"] $ws3 
+assign [class="Atom"] $ws3
 assign [class="libreoffice"] $ws5
 
 
@@ -257,4 +257,3 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 
 # Other stuff
 workspace_auto_back_and_forth yes
-
