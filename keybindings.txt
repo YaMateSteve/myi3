@@ -28,6 +28,8 @@ _=-=_=-=_=-=_=-=_=-=_=-=_
 $mod + v         = Vertical layout
 $mod + Shift + v = Horizontal layout
 
+       __Resizeing__
+
 $mod + z         = Increase window size
 $mod + x         = Decrease window size
 $mod + Shift + k = Increase window height
@@ -35,12 +37,18 @@ $mod + Shift + j = Decrease window height
 $mod + Shift + l = Increase window width
 $mod + Shift + h = Decrease window width
 
+       __Gap_Size__
+
 $mod + Shift + z = Increase gap size
 $mod + Shift + x = Decrease gap size
 
+       __Floating_Windows__
+
 $mod + Shift + Space      = Toggle floating window
-$mod + space              = Switch focus between pop-up and tiled
-$mod + Shift + arrow keys = Move pop-up window
+$mod + space              = Switch focus between floating and tiled
+$mod + Shift + arrow keys = Move floating window
+
+       __View_Modes__
 
 $mod + e = Switch virticle / horizontal
 $mod + f = Fullscreen

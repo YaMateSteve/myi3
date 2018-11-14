@@ -6,11 +6,11 @@ vol_percent=$(pactl list sinks | grep front-left | grep -o '[0-9]\{2,3\}[%]' | g
 vol=$(echo $vol_percent | grep -o '[0-9]\{2,3\}')
 if [ $mute = 'no' ]; then
   if [ $vol -gt 50 ]; then
-  	echo "_$vol_percent"
+  	echo ""
   elif [ $vol -gt 20 ] && [ $vol -le 50 ]; then
-  	echo "_$vol_percent"
+  	echo ""
   elif [ $vol -gt 0 ] && [ $vol -le 20 ]; then
-  	echo "_$vol_percent"
+  	echo ""
   else
   	echo ""
   fi

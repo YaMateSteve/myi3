@@ -3,10 +3,14 @@
 # Get cpu temp
 temp=$(acpi -t | awk '{print $4}' | grep -o '[0-9]\{2,3\}')
 
-if [ $temp -gt 50 ]; then
+if [ $temp -ge 60 ]; then
 	echo "_$temp.C"
-elif [ $temp -gt 20 ] && [ $temp -le 50 ]; then
-  echo "_$temp.C"
+elif [ $temp -ge 50 ] && [ $temp -lt 60 ]; then
+  echo ""
+elif [ $temp -ge 40 ] && [ $temp -lt 50 ]; then
+  echo ""
+elif [ $temp -ge 30 ] && [ $temp -lt 40 ]; then
+  echo ""
 else
-	echo "_$temp.C"
+	echo ""
 fi
