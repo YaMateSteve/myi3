@@ -1,16 +1,19 @@
 #!/bin/bash
 
-##Downloads
+## Get home directory
+user=$(who | awk '{print $1}')
+home=/home/$user/
+## Downloads
 pacman -Sy intel-ucode xf86-input-synaptics networkmanager network-manager-applet ttf-liberation ttf-font-awesome dmenu upower ranger gedit compton feh lxappearance rxvt-unicode urxvt-perls
 
 ## Distribute config files
-cp config_files/i3config ~/.config/i3/config
-cp config_files/i3blocks.conf ~/.config/i3/i3blocks.conf
-cp config_files/Xresources ~/.Xresources
-cp config_files/bashrc ~/.bashrc
-chown $USER ~/.config/i3/config ~/.Xresources ~/.bashrc
-mkdir ~/.scripts
-cp -r scripts/* ~/.scripts
+cp config_files/i3config $home.config/i3/config
+cp config_files/i3blocks.conf $home.config/i3/i3blocks.conf
+cp config_files/Xresources $home.Xresources
+cp config_files/bashrc $home.bashrc
+chown $user $home.config/i3/config $home.Xresources $home.bashrc
+mkdir $home.scripts
+cp -r scripts/* $home.scripts
 
 ## Enable wifi applet
 systemctl enable NetworkManager.service
