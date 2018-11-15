@@ -3,11 +3,8 @@
 !! Window look
 URxvt.scrollBar: false
 URxvt.transparent: true
-URxvt.shading: 10
+URxvt.shading: 5
 !!URxvt.letterSpace: -3.5
-
-!! Extensions
-URxvt.perl-ext-common: url-select
 
 !! Font
 URxvt.font: xft:Cantarell Regular:size=10
@@ -45,6 +42,16 @@ URxvt.font: xft:Cantarell Regular:size=10
 ! white
 *.color7:       #ffffff
 *.color15:      #ffffff
+
+!! Extensions
+URxvt.perl-ext-common: resize-font, url-select, keyboard-select
+
+!! Resize font
+URxvt.keysym.M-x:     resize-font:smaller
+URxvt.keysym.M-z:     resize-font:bigger
+
+!! keyboard-select
+URxvt.keysym.M-Escape: perl:keyboard-select:active
 
 
 
