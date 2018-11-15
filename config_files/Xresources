@@ -6,8 +6,11 @@ URxvt.transparent: true
 URxvt.shading: 10
 !!URxvt.letterSpace: -3.5
 
+!! Extensions
+URxvt.perl-ext-common: url-select
+
 !! Font
-URxvt.font: xft:Cantarell Regular:size=12
+URxvt.font: xft:Cantarell Regular:size=10
 
 !! Colours
 !!URxvt*background: black

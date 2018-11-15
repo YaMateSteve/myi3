@@ -5,7 +5,7 @@ charging=$(acpi | grep -o Charging)
 bat_percent=$(acpi | grep -o '[0-9]\{2,3\}[%]')
 bat=$(echo $bat_percent | grep -o '[0-9]\{2,3\}')
 
-if [ $bat -eq 100 ] && [ $charging = 'Charging' ]; then
+if [ $bat -ge 100 ]; then
 	echo "Fully Charged"
 else
 	if [ $charging = 'Charging' ]; then
