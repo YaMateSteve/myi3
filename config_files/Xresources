@@ -3,7 +3,7 @@
 !! Window look
 URxvt.scrollBar: false
 URxvt.transparent: true
-URxvt.shading: 5
+URxvt.shading: 20
 !!URxvt.letterSpace: -3.5
 
 !! Font

@@ -9,18 +9,18 @@ if [ $bat -ge 100 ]; then
 	echo "Fully Charged"
 else
 	if [ $charging = 'Charging' ]; then
-		echo "_$bat_percent"
+		echo " $bat_percent"
 	else
 		if [ $bat -gt 90 ]; then
-			echo ""
+			echo " $bat_percent"
 		elif [ $bat -gt 75 ] && [ $bat -le 90 ]; then
-			echo ""
+			echo " $bat_percent"
 		elif [ $bat -gt 50 ] && [ $bat -le 75 ]; then
-			echo ""
+			echo " $bat_percent"
 		elif [ $bat -gt 20 ] && [ $bat -le 50 ]; then
-			echo ""
+			echo " $bat_percent"
 		else
-			echo "_$bat_percent"
+			echo " $bat_percent"
 		fi
 	fi
 fi

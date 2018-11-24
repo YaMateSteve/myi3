@@ -231,7 +231,7 @@ bar {
 ### WALLPAPER / EFFECTS ###
 ###########################
 
-exec --no-startup-id feh --bg-max ~/Pictures/image4.jpg
+exec --no-startup-id feh --bg-max ~/Pictures/image1.jpg
 exec compton -f
 
 #######################

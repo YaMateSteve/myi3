@@ -1,2 +1,3 @@
 #!/bin/bash
-df -h | grep /home | awk '{print $4}'
+mem=$(df -h | grep /home | awk '{print $4}')
+echo " $mem"
