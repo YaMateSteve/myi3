@@ -13,11 +13,11 @@ else
 	else
 		if [ $bat -gt 90 ]; then
 			echo " $bat_percent"
-		elif [ $bat -gt 75 ] && [ $bat -le 90 ]; then
+		elif [ $bat -gt 74 ] && [ $bat -le 90 ]; then
 			echo " $bat_percent"
-		elif [ $bat -gt 50 ] && [ $bat -le 75 ]; then
+		elif [ $bat -gt 49 ] && [ $bat -le 74 ]; then
 			echo " $bat_percent"
-		elif [ $bat -gt 20 ] && [ $bat -le 50 ]; then
+		elif [ $bat -gt 20 ] && [ $bat -le 49 ]; then
 			echo " $bat_percent"
 		else
 			echo " $bat_percent"
