@@ -188,7 +188,7 @@ set $urgent-bg-color     #e53935
 
 #window colours
 #                       Border             Background         Text                 Indicator
-client.focused          $active_border     $active_border     $text-color          #ff00ff
+client.focused          $active_border     $active_border     $text-color          #ff99ff
 client.unfocused        $inactive_border   $inactive_border   $inactive-text-color #3b5998
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #3b5998
 client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          #3b5998
@@ -219,9 +219,9 @@ bar {
 
         colors{
                background $bg-color
-               separator  #757575
+               separator  #ff99ff
                #                  Border             Background         Text
-               focused_workspace  $active_border     #366666     $text-color
+               focused_workspace  $active_border     #366666            $text-color
                inactive_workspace $inactive-bg-color $inactive-bg-color #366666
                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
         }
