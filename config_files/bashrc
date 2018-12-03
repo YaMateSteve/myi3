@@ -8,5 +8,5 @@
 alias ls='ls --color=auto'
 #PS1='[\u@\h \W]\$ '
 #         [          steven      @          archPC       directory   ]          $           "text"
-PS1='\[\e[35m[\]\[\e[32m\u\]\[\e[31m@\]\[\e[36m\h\] \[\e[34m\W\]\[\e[35m]\]\[\e[33m\$\]\[\e[37m \]'
+PS1='\[\e[35m[\]\[\e[34m\u\]\[\e[31m@\]\[\e[36m\h\] \[\e[32m\W\]\[\e[35m]\]\[\e[33m\$\]\[\e[37m \]'
 

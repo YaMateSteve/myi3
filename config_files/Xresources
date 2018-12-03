@@ -16,7 +16,7 @@ URxvt.font: xft:Cantarell Regular:size=10
 ! special
 *.foreground:   #a39e9b
 *.background:   #2f1e2e
-*.cursorColor:  #ff99ff
+*.cursorColor:  #ff55ff
 
 ! black
 *.color0:       #ffffff
@@ -34,8 +34,8 @@ URxvt.font: xft:Cantarell Regular:size=10
 *.color4:       #5294e2
 *.color12:      #5294e2
 ! magenta
-*.color5:       #ff99ff
-*.color13:      #ff99ff
+*.color5:       #ff55ff
+*.color13:      #ff55ff
 ! cyan
 *.color6:       #00fff6
 *.color14:      #00fff6
