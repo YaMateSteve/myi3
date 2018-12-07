@@ -7,7 +7,7 @@ URxvt.shading: 20
 !!URxvt.letterSpace: -3.5
 
 !! Font
-URxvt.font: xft:Cantarell Regular:size=10
+URxvt.font: xft:Monospace:pixelsize=14.5
 
 !! Colours
 !!URxvt*background: black
