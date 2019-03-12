@@ -16,10 +16,10 @@ mkdir $home.scripts
 cp -r scripts/* $home.scripts
 
 ## Enable wifi applet
-#systemctl enable NetworkManager.service
-#systemctl disable dhcpcd@eno1.service
-#systemctl disable netctl-auto@wlo1.service
-#echo 'wifi enabled'
+systemctl enable NetworkManager.service
+systemctl disable dhcpcd@eno1.service
+systemctl disable netctl-auto@wlo1.service
+echo 'wifi enabled'
 
 ## Setup touchpad
 echo '
