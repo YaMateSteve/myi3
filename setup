@@ -19,7 +19,7 @@ cp -r scripts/* $home.scripts
 systemctl enable NetworkManager.service
 systemctl disable dhcpcd@eno1.service
 systemctl disable netctl-auto@wlo1.service
-echo 'wifi enabled'
+
 
 ## Setup touchpad
 echo '
@@ -31,4 +31,4 @@ Section "InputClass"
     Option "Tapping" "on"
     Driver "libinput"
 EndSection' >> /usr/share/X11/xorg.conf.d/40-libinput.conf
-echo 'tap to click enabled'
+
