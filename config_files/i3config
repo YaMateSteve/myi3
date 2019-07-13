@@ -11,41 +11,43 @@ floating_modifier $mod
 ######################
 ## PROGRAM BINDINGS ##
 ######################
-set $term     exec urxvt -name terminal
-set $altterm  exec urxvt
+
+set $term     exec urxvt 
 set $browser  exec firefox
 set $browser_class Firefox
 
-## DROPDOWN WINDOWS ##
+####################
+## POP UP WINDOWS ##
+####################
 
 # Dropdown terminal - $mod+u #
 for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] resize set 625 460
 for_window [instance="dropdown"] move scratchpad
 for_window [instance="dropdown"] border pixel 3
-exec --no-startup-id $altterm -name dropdown
+exec --no-startup-id $term -name dropdown
+bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 
 # Math teminal (python shell) - $mod+i #
 for_window [instance="math"] floating enable
 for_window [instance="math"] resize set 1000 500
 for_window [instance="math"] move scratchpad
 for_window [instance="math"] border pixel 3
-exec --no-startup-id $altterm -name math -fn xft:monaco:pixelsize=24 -e python -q
+exec --no-startup-id $term -name math -fn xft:monaco:pixelsize=24 -e python -q
+bindsym $mod+i [instance="math"] scratchpad show; [instance="math"] move position center
 
+# Password manager - $mod+p #
+for_window [instance="bitwarden"] floating enable
+for_window [instance="bitwarden"] resize set 600 900
+for_window [instance="bitwarden"] move position center
+bindsym $mod+p exec bitwarden; 
 
-
-##################
-## KEY BINDINGS ##
-##################
+##########################
+## PROGRAM KEY BINDINGS ##
+##########################
 
 # Open terminal
-bindsym $mod+Return $term
-
-## switch windows back and forth
-bindsym $mod+Tab workspace back_and_forth
-
-# kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Return $term -name terminal
 
 # Atom
 bindsym $mod+a exec atom
@@ -54,27 +56,26 @@ for_window [class="Atom"] border pixel 0
 # dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run -l 10
 
-# Math terminal (python shell)
-bindsym $mod+i [instance="math"] scratchpad show; [instance="math"] move position center
-
 # Libre office
 bindsym $mod+o exec libreoffice --nologo
 for_window [class="libreoffice"] border pixel 0
 
-# Python idle editorbindsym $mod+Shift+h move left 30
-bindsym $mod+p exec idle -e
 for_window [class="Toplevel"] border pixel 0
 #for_window [class="Toplevel"] floating enable move right 361px, move up 54px
 for_window [class="Toplevel"] resize set 600 700
 
-# Turtle window
-for_window [class="Tk"] floating enable
-
 # Ranger
 bindsym $mod+r $term -e ranger
 
-# Dropdown terminal
-bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
+#########################
+## Window key bindings ##
+#########################
+
+# switch windows back and forth
+bindsym $mod+Tab workspace back_and_forth
+
+# kill focused window
+bindsym $mod+Shift+q kill
 
 # Change gaps
 bindsym $mod+Shift+z gaps outer current plus 5; gaps inner current plus 5
@@ -240,7 +241,7 @@ exec compton -f
 #######################
 
 exec --no-startup-id nm-applet
-exec --no-startup-id i3-msg 'workspace $ws2; $term'
+exec --no-startup-id i3-msg 'workspace $ws2; $term -name terminal'
 
 ### Assign workspaces ###
 
