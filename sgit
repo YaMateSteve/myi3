@@ -1,6 +1,7 @@
 #!/bin/bash
 
 i3=~/myi3/config_files/
+echo "Enter commit message: "
 read message
 cp ~/.Xresources $i3/Xresources
 cp ~/.config/i3/config $i3/i3config
