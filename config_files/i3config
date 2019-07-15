@@ -8,9 +8,11 @@ font pango:Cantarell Regular 12
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-######################
-## PROGRAM BINDINGS ##
-######################
+#bindsym --whole-window button1 floating_modifier
+
+#######################
+## PROGRAM VARIABLES ##
+#######################
 
 set $term     exec urxvt 
 set $browser  exec firefox
@@ -56,10 +58,6 @@ for_window [class="Atom"] border pixel 0
 # dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run -l 10
 
-# Libre office
-bindsym $mod+o exec libreoffice --nologo
-for_window [class="libreoffice"] border pixel 0
-
 for_window [class="Toplevel"] border pixel 0
 #for_window [class="Toplevel"] floating enable move right 361px, move up 54px
 for_window [class="Toplevel"] resize set 600 700
@@ -68,7 +66,7 @@ for_window [class="Toplevel"] resize set 600 700
 bindsym $mod+r $term -e ranger
 
 #########################
-## Window key bindings ##
+## WINDOW KEY BINDINGS ##
 #########################
 
 # switch windows back and forth
@@ -107,7 +105,6 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-
 # split in horizontal orientation
 bindsym $mod+Shift+v split h
 
@@ -138,26 +135,30 @@ bindsym $mod+b focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 ""
 set $ws2 ""
-set $ws3 ""
+set $ws3 "3"
 set $ws4 "4"
-set $ws5 ""
+set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "Config"
 
-# switch to workspace
+# Switch to workspace
 bindsym $mod+1 workspace $ws1; exec ~/.scripts/i3config/browser.sh
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3; exec ~/.scripts/i3config/atom.sh
+bindsym $mod+2 workspace $ws2; exec ~/.scripts/i3config/terminal.sh
+bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5; exec ~/.scripts/i3config/libreoffice.sh
+bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
+bindsym $mod+9 workspace $ws9; exec ~/.scripts/i3config/discord.sh
 bindsym $mod+0 workspace $ws10; exec ~/.scripts/i3config/config.sh
+
+# Assign workspaces
+assign [class="$browser_class"] $ws1
+assign [class="discord"] $ws9
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -178,22 +179,49 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# Set colours
-set $active_border       #5294e2
-set $inactive_border     #000000
-set $bg-color            #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676e7d
-set $urgent-bg-color     #e53935
-set $pink                #9900bb
+#############
+## COLOURS ##
+#############
 
-#window colours
-#                       Border             Background         Text                 Indicator
-client.focused          $active_border     $active_border     $text-color          $pink
-client.unfocused        $inactive_border   $inactive_border   $inactive-text-color #3b5998
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #3b5998
-client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          #3b5998
+#set $accent1       #5294e2
+#set $accent2       #9900bb
+#set $background1   #2f343f
+#set $background2   #366666
+#set $text          #f3f4f5
+#set $inactive_text #676e7d 
+#set $notification  #e53935
+#set $inactive      #000000
+
+set $accent1       #5294e2
+set $accent2       #9900bb
+set $background1   #2f343f
+set $background2   #366666
+set $text          #f3f4f5
+set $inactive_text #676e7d 
+set $notification  #e53935
+set $inactive      #000000
+
+# Window colours
+#                       Border        Background    Text            Indicator
+client.focused          $accent1      $accent1      $text           $accent2
+client.unfocused        $inactive     $inactive     $inactive_text  #3b5998
+client.focused_inactive $background1  $background1  $inactive_text  #3b5998
+client.urgent           $notification $notification $text           #3b5998
+
+bar {
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	position top
+	font pango: Cantarell, Font Awesome 5 Free 10
+
+        colors{
+               background $background1
+               separator  $accent2
+               #                  Border        Background    Text
+               focused_workspace  $accent1      $background2  $text
+               inactive_workspace $background1  $background1  $background2
+               urgent_workspace   $notification $notification $text
+        }
+}
 
 ###############
 ### BORDERS ###
@@ -208,30 +236,9 @@ for_window [class="Firefox"] border pixel 2
 for_window [class="feh"] border pixel 0; hide_edge_borders both
 for_window [class="Electron"] floating enable
 
-
-
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        #status_command i3status
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	position top
-	font pango: Cantarell, Font Awesome 5 Free 10
-
-        colors{
-               background $bg-color
-               separator  $pink
-               #                  Border             Background         Text
-               focused_workspace  $active_border     #366666            $text-color
-               inactive_workspace $inactive-bg-color $inactive-bg-color #366666
-               urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-        }
-}
-
-###########################
-### WALLPAPER / EFFECTS ###
-###########################
+#########################
+## WALLPAPER / EFFECTS ##
+#########################
 
 exec --no-startup-id feh --bg-max ~/Pictures/image1.jpg
 exec compton -f
@@ -241,14 +248,7 @@ exec compton -f
 #######################
 
 exec --no-startup-id nm-applet
-exec --no-startup-id i3-msg 'workspace $ws2; $term -name terminal'
-
-### Assign workspaces ###
-
-assign [class="$browser_class"] $ws1
-assign [class="Atom"] $ws3
-assign [class="libreoffice"] $ws5
-
+#exec --no-startup-id i3-msg 'workspace $ws2; $term -name terminal'
 
 ### Audio ###
 
