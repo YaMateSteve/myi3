@@ -1,3 +1,4 @@
 #!/usr/bin/bash
-used=$(free -h | grep Mem | awk '{print $3}')
+# Print the current ram usage 
+used=$(free --si -h | grep Mem | awk '{print $3}')
 echo " $used"

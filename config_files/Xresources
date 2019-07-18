@@ -53,15 +53,9 @@ URxvt.keysym.M-z:     resize-font:bigger
 !! keyboard-select
 URxvt.keysym.M-Escape: perl:keyboard-select:active
 
-!! i3 config colours
-*accent1:       #5294e2
-*accent2:       #9900bb
-*background1:   #2f343f
-*background2:   #366666
-*text:          #f3f4f5
-*inactive_text: #676e7d 
-*notification:  #e53935
-*inactive:      #000000
-
+URxvt.perl-ext-common: ...,clipboard
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 

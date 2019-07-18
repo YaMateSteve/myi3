@@ -8,8 +8,6 @@ font pango:Cantarell Regular 12
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-#bindsym --whole-window button1 floating_modifier
-
 #######################
 ## PROGRAM VARIABLES ##
 #######################
@@ -186,7 +184,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 #set $accent1       #5294e2
 #set $accent2       #9900bb
 #set $background1   #2f343f
-#set $background2   #366666
+#set $background2   #485485
 #set $text          #f3f4f5
 #set $inactive_text #676e7d 
 #set $notification  #e53935
@@ -195,7 +193,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 set $accent1       #5294e2
 set $accent2       #9900bb
 set $background1   #2f343f
-set $background2   #366666
+set $background2   #485485
 set $text          #f3f4f5
 set $inactive_text #676e7d 
 set $notification  #e53935

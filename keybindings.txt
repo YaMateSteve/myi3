@@ -2,7 +2,6 @@
 Key set-up
 
 ______General_Keys_______
-_=-=_=-=_=-=_=-=_=-=_=-=_
 
 $mod + Return = Terminal
 $mod + a = Atom
@@ -23,8 +22,8 @@ $mod + o =
 $mod + p =
 
 _________Layout__________
-_=-=_=-=_=-=_=-=_=-=_=-=_
 
+Open next window to the right or bellow the current window.
 $mod + v         = Vertical layout
 $mod + Shift + v = Horizontal layout
 
