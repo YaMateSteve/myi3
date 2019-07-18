@@ -3,6 +3,8 @@
 i3=~/myi3/config_files/
 echo "Enter commit message: "
 read message
+echo "What would you like to add?"
+read add
 cp ~/.Xresources $i3/Xresources
 cp ~/.config/i3/config $i3/i3config
 cp ~/.bashrc $i3/bashrc
@@ -11,6 +13,6 @@ cp -r ~/.scripts/i3blocks/* ~/myi3/scripts/i3blocks
 cp -r ~/.scripts/i3config/* ~/myi3/scripts/i3config
 
 
-git add ~/myi3
+git add ~/myi3/$add
 git commit -m "$message"
 git push origin master
