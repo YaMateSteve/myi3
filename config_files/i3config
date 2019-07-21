@@ -38,30 +38,35 @@ bindsym $mod+i [instance="math"] scratchpad show; [instance="math"] move positio
 
 # Password manager - $mod+p #
 for_window [instance="bitwarden"] floating enable
-for_window [instance="bitwarden"] resize set 600 900
-for_window [instance="bitwarden"] move position center
-bindsym $mod+p exec bitwarden; 
+for_window [instance="bitwarden"] resize set 800 900
+for_window [instance=bitwarden] move scratchpad
+bindsym $mod+p exec ~/.scripts/i3config/bitwarden.sh; [instance="bitwarden"] scratchpad show
 
 ##########################
 ## PROGRAM KEY BINDINGS ##
 ##########################
 
-# Open terminal
-bindsym $mod+Return $term -name terminal
-
 # Atom
 bindsym $mod+a exec atom
 for_window [class="Atom"] border pixel 0
 
-# dmenu (a program launcher)
+# Dmenu
 bindsym $mod+d exec dmenu_run -l 10
+
+# OneNote
+bindsym $mod+n exec p3x-onenote
+
+# Ranger
+bindsym $mod+r $term -e ranger
+
+# Terminal
+bindsym $mod+Return $term -name terminal
 
 for_window [class="Toplevel"] border pixel 0
 #for_window [class="Toplevel"] floating enable move right 361px, move up 54px
 for_window [class="Toplevel"] resize set 600 700
 
-# Ranger
-bindsym $mod+r $term -e ranger
+
 
 #########################
 ## WINDOW KEY BINDINGS ##
@@ -131,16 +136,16 @@ bindsym $mod+b focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 ""
-set $ws2 ""
+set $ws1 "1"
+set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
-set $ws10 "Config"
+set $ws9 "9"
+set $ws10 "10"
 
 # Switch to workspace
 bindsym $mod+1 workspace $ws1; exec ~/.scripts/i3config/browser.sh
@@ -209,6 +214,7 @@ client.urgent           $notification $notification $text           #3b5998
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
+	strip_workspace_numbers yes
 	font pango: Cantarell, Font Awesome 5 Free 10
 
         colors{
@@ -256,4 +262,4 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%; e
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle; exec ~/.scripts/i3blocks/volume-run.sh # mute sound
 
 # Other stuff
-workspace_auto_back_and_forth yes      
+workspace_auto_back_and_forth yes
