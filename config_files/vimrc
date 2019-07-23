@@ -1,0 +1,11 @@
+" Enable syntax
+syntax on
+
+" Display line numbers
+set number
+
+" Show partial commands
+set showcmd
+
+" Run xrdb when editing Xresources
+	autocmd BufWritePost ~/.Xresources !xrdb %
