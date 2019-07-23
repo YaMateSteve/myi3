@@ -4,13 +4,14 @@
 user=$(who | awk '{print $1}')
 home=/home/$user/
 ## Downloads
-pacman -Sy intel-ucode xf86-input-libinput networkmanager network-manager-applet ttf-liberation otf-font-awesome dmenu acpi upower tlp ranger gedit compton feh lxappearance rxvt-unicode urxvt-perls acpi pulseaudio pulseaudio-alsa arc-gtk-theme
+pacman -Sy intel-ucode xf86-input-libinput networkmanager network-manager-applet ttf-liberation otf-font-awesome dmenu acpi upower tlp ranger gedit compton feh lxappearance rxvt-unicode urxvt-perls pulseaudio pulseaudio-alsa arc-gtk-theme
 
 ## Distribute config files
 cp config_files/i3config $home.config/i3/config
 cp config_files/i3blocks.conf $home.config/i3/i3blocks.conf
 cp config_files/Xresources $home.Xresources
 cp config_files/bashrc $home.bashrc
+cp config_files/vimrc $home.vimrc
 chown $user $home.config/i3/config $home.Xresources $home.bashrc
 mkdir $home.scripts
 cp -r scripts/* $home.scripts

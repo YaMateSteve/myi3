@@ -3,59 +3,69 @@
 !! Window look
 URxvt.scrollBar: false
 URxvt.transparent: true
-URxvt.shading: 20
+URxvt.shading: 10
 !!URxvt.letterSpace: -3.5
 
-!! Font
-URxvt.font: xft:Monospace:pixelsize=14.5
 
-!! Colours
-!!URxvt*background: black
-!!URxvt*foreground:
+!! Font
+URxvt.font: xft:Inconsolata:size=14
 
 ! special
-*.foreground:   #a39e9b
-*.background:   #2f1e2e
-*.cursorColor:  #9900bb
+*.foreground:   #676e7d
+*.background:   #151515
+*.cursorColor:  #676e7d
 
 ! black
-*.color0:       #ffffff
-*.color8:       #ffffff
+*.color0:       #151515
+*.color8:       #2f343f
+
 ! red
-*.color1:       #cc4e43
-*.color9:       #cc4e43
+*.color1:       #ac3839
+*.color9:       #ac3839
+
 ! green
-*.color2:       #16dd2a
-*.color10:      #16dd2a
+*.color2:       #90a959
+*.color10:      #90a959
+
 ! yellow
-*.color3:       #d0ff00
-*.color11:      #d0ff00
+*.color3:       #f4ac47
+*.color11:      #f4ac47
+
 ! blue
-*.color4:       #5294e2
-*.color12:      #5294e2
+*.color4:       #485485
+*.color12:      #485485
+
 ! magenta
 *.color5:       #9900bb
 *.color13:      #9900bb
+
 ! cyan
-*.color6:       #00fff6
-*.color14:      #00fff6
+*.color6:       #5294e2
+*.color14:      #5294e2
+
 ! white
-*.color7:       #ffffff
-*.color15:      #ffffff
+*.color7:       #d0d0d0
+*.color15:      #f5f5f5
 
 !! Extensions
-URxvt.perl-ext-common: resize-font, url-select, keyboard-select
+URxvt.perl-ext-common: resize-font,url-select,clipboard,block-graphics-to-ascii
+
+!! Underline colour
+URxvt*underlineColor:  #5294e2
+
+!! URL-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.autocopy: true
+URxvt.url-select.underline: true
 
 !! Resize font
-URxvt.keysym.M-x:     resize-font:smaller
-URxvt.keysym.M-z:     resize-font:bigger
+URxvt.keysym.M-x: resize-font:smaller
+URxvt.keysym.M-z: resize-font:bigger
 
-!! keyboard-select
-URxvt.keysym.M-Escape: perl:keyboard-select:active
-
-URxvt.perl-ext-common: ...,clipboard
-URxvt.keysym.M-c:   perl:clipboard:copy
-URxvt.keysym.M-v:   perl:clipboard:paste
+!! Copy and paste
+URxvt.clipboard.autocopy: true 
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 
