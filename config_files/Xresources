@@ -4,11 +4,16 @@
 URxvt.scrollBar: false
 URxvt.transparent: true
 URxvt.shading: 10
-!!URxvt.letterSpace: -3.5
 
 
 !! Font
-URxvt.font: xft:Inconsolata:size=14
+!URxvt*font: xft:DejaVu Sans Mono:size=14:antiaias=true
+!URxvt*letterSpace: 0
+
+URxvt*font: xft:Inconsolata:style=Regular:size=14:antiaias=true
+URxvt*letterSpace: 0
+
+
 
 ! special
 *.foreground:   #676e7d
@@ -59,13 +64,12 @@ URxvt.url-select.autocopy: true
 URxvt.url-select.underline: true
 
 !! Resize font
-URxvt.keysym.M-x: resize-font:smaller
-URxvt.keysym.M-z: resize-font:bigger
+URxvt.keysym.M-k: resize-font:smaller
+URxvt.keysym.M-j: resize-font:bigger
 
 !! Copy and paste
 URxvt.clipboard.autocopy: true 
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-
 

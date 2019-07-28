@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-count=`ps aux | grep -c atom`
-if [ $count -eq 3 ]; then
-    atom
+count=`pgrep -c atom`
+if [ $count -eq 0 ]; then
+    atom 
 fi

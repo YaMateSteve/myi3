@@ -4,7 +4,7 @@
 user=$(who | awk '{print $1}')
 home=/home/$user/
 ## Downloads
-pacman -Sy intel-ucode xf86-input-libinput networkmanager network-manager-applet ttf-liberation otf-font-awesome dmenu acpi upower tlp ranger gedit compton feh lxappearance rxvt-unicode urxvt-perls pulseaudio pulseaudio-alsa arc-gtk-theme
+pacman -Sy intel-ucode xf86-input-libinput networkmanager network-manager-applet ttf-inconsolata otf-font-awesome dmenu acpi upower tlp ranger gedit compton feh lxappearance rxvt-unicode urxvt-perls pulseaudio pulseaudio-alsa alsa-utils arc-gtk-theme
 
 ## Distribute config files
 cp config_files/i3config $home.config/i3/config
