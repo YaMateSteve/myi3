@@ -12,7 +12,7 @@ floating_modifier $mod
 ## PROGRAM VARIABLES ##
 #######################
 
-set $term     exec urxvt 
+set $term     exec ~/.scripts/i3config/st.sh
 set $browser  exec firefox
 set $browser_class Firefox
 
@@ -25,7 +25,7 @@ for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] resize set 625 460
 for_window [instance="dropdown"] move scratchpad
 for_window [instance="dropdown"] border pixel 3
-exec --no-startup-id $term -name dropdown
+exec --no-startup-id $term dropdown
 bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 
 # Math teminal (python shell) - $mod+i #
@@ -33,7 +33,7 @@ for_window [instance="math"] floating enable
 for_window [instance="math"] resize set 1000 500
 for_window [instance="math"] move scratchpad
 for_window [instance="math"] border pixel 3
-exec --no-startup-id $term -name math -fn xft:monaco:pixelsize=24 -e python -q
+exec --no-startup-id $term math python\ -q -fn xft:monaco:pixelsize=24
 bindsym $mod+i [instance="math"] scratchpad show; [instance="math"] move position center
 
 # Password manager - $mod+p #
@@ -60,7 +60,13 @@ bindsym $mod+n exec p3x-onenote
 bindsym $mod+r $term -e ranger
 
 # Terminal
-bindsym $mod+Return $term -name terminal
+bindsym $mod+Return $term Terminal
+
+# Shutdown
+bindsym $mod+Shift+Delete exec $(shutdown -h now)
+
+# Restart
+bindsym $mod+Shift+Insert exec $(shutdown -r now)
 
 for_window [class="Toplevel"] border pixel 0
 #for_window [class="Toplevel"] floating enable move right 361px, move up 54px
@@ -149,7 +155,7 @@ set $ws10 "10"
 
 # Switch to workspace
 bindsym $mod+1 workspace $ws1; exec ~/.scripts/i3config/browser.sh
-bindsym $mod+2 workspace $ws2; exec ~/.scripts/i3config/terminal.sh
+bindsym $mod+2 workspace $ws2;
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
@@ -206,7 +212,7 @@ bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
 	strip_workspace_numbers yes
-	font pango: Cantarell, Font Awesome 5 Free 10
+	font pango: inconsolata, Font Awesome 5 Free 11
 
         colors{
                background $background1
@@ -233,7 +239,7 @@ for_window [class="^.*"] border pixel 2
 #######################
 
 exec --no-startup-id nm-applet
-exec --no-startup-id i3-msg 'workspace $ws2; $term -name terminal'
+exec --no-startup-id i3-msg 'workspace $ws2; $term Terminal'
 
 # WALLPAPER / EFFECTS
 exec --no-startup-id feh --bg-max ~/Pictures/image1.jpg
