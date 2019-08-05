@@ -10,10 +10,10 @@ alias ls='ls --color=auto'
 #         [          steven      @          archPC       directory   ]          $           "text"
 PS1='\[\e[35m[\]\[\e[31m\u\]\[\e[34m@\]\[\e[36m\h\] \[\e[32m\W\]\[\e[35m]\]\[\e[33m\$\]\[\e[37m \]'
 
-alias uu="sudo pacman -Syu"
+alias uu="sudo timeshift --create &&  pacman -Syu"
 alias s="pacman -Ss"
-alias cab="cd ~/Uni/cab403"
-alias tut="cab && cd tutorials"
+alias cab403="cd ~/Uni/cab403/tutorials"
+alias mxb100="cd ~/Uni/mxb100"
 
 
 alias config='/usr/bin/git --git-dir=/home/steven/.cfg/ --work-tree=/home/steven'

@@ -12,7 +12,7 @@ floating_modifier $mod
 ## PROGRAM VARIABLES ##
 #######################
 
-set $term     exec ~/.scripts/i3config/st.sh
+set $term     exec ~/.scripts/st.sh
 set $browser  exec firefox
 set $browser_class Firefox
 
@@ -204,7 +204,7 @@ set $inactive      #000000
 # Window colours
 #                       Border        Background    Text            Indicator
 client.focused          $accent1      $accent1      $text           $accent2
-client.unfocused        $inactive     $inactive     $inactive_text  #3b5998
+client.unfocused        $inactive     $background1  $inactive_text  #3b5998
 client.focused_inactive $background1  $background1  $inactive_text  #3b5998
 client.urgent           $notification $notification $text           #3b5998
 
