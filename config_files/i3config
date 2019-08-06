@@ -250,9 +250,9 @@ exec compton -f
 #############
 
 # Pulse Audio mechanical buttons config
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%; exec ~/.scripts/i3blocks/volume-run.sh #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%; exec ~/.scripts/i3blocks/volume-run.sh #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle; exec ~/.scripts/i3blocks/volume-run.sh # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%; exec ~/.scripts/status/volume-run.sh #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%; exec ~/.scripts/status/volume-run.sh #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle; exec ~/.scripts/status/volume-run.sh # mute sound
 
 ########
 # MISC #
