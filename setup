@@ -1,24 +1,27 @@
-#!/bin/bash
+u!/bin/bash
 
 ## Get home directory
-user=$(who | awk '{print $1}')
+user=$SUDO_USER
+home=/home/$user/
 ## Downloads
 pacman -Sy intel-ucode xf86-input-libinput networkmanager network-manager-applet ttf-inconsolata otf-font-awesome dmenu acpi upower tlp ranger gedit compton feh lxappearance rxvt-unicode urxvt-perls pulseaudio pulseaudio-alsa alsa-utils arc-gtk-theme
 
 ## Distribute config files
-cp config_files/i3config $HOME.config/i3/config
-cp config_files/i3blocks.conf $HOME.config/i3/i3blocks.conf
-cp config_files/Xresources $HOME.Xresources
-cp config_files/bashrc $HOME.bashrc
-cp config_files/vimrc $HOME.vimrc
-mkdir -p $HOME/Programs/st
-cp config_files/stconfig $HOME/Programs/st
-chown $user $HOME.config/i3/config $HOME.Xresources $HOME.bashrc
-mkdir $HOME.scripts
-cp -r scripts/* $HOME.scripts
+mkdir -p $home/.config/i3
+cp config_files/i3config $home.config/i3/config
+cp config_files/i3blocks.conf $home.config/i3/i3blocks.conf
+cp config_files/Xresources $home.Xresources
+cp config_files/bashrc $home.bashrc
+cp config_files/vimrc $home.vimrc
+mkdir -p $home/Programs/st
+cp config_files/stconfig $home/Programs/st
+chown $user $home.config/i3/config $home.Xresources $home.bashrc
+mkdir -p $home.scripts
+cp -r scripts/* $home.scripts
 
 ## Enable wifi applet
 systemctl enable NetworkManager.service
+systemctl start NetworkManager.service
 systemctl disable dhcpcd@eno1.service
 systemctl disable netctl-auto@wlo1.service
 
@@ -27,7 +30,7 @@ systemctl disable netctl-auto@wlo1.service
 echo '
 Section "InputClass"
     Identifier "libinput touchpad catchall"
-    MatchIsTouchpad "no"
+    MatchIsTouchpad "on"
     MatchDevicePath "/dev/input/event*"
     Option "NaturalScrolling" "true"
     Option "Tapping" "on"
