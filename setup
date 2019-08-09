@@ -13,8 +13,6 @@ cp config_files/i3blocks.conf $home.config/i3/i3blocks.conf
 cp config_files/Xresources $home.Xresources
 cp config_files/bashrc $home.bashrc
 cp config_files/vimrc $home.vimrc
-mkdir -p $home/Programs/st
-cp config_files/stconfig $home/Programs/st
 chown $user $home.config/i3/config $home.Xresources $home.bashrc
 mkdir -p $home.scripts
 cp -r scripts/* $home.scripts
