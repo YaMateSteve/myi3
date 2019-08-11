@@ -7,15 +7,15 @@ home=/home/$user/
 pacman -Sy intel-ucode xf86-input-libinput networkmanager network-manager-applet ttf-inconsolata otf-font-awesome dmenu acpi upower tlp ranger gedit compton feh lxappearance rxvt-unicode urxvt-perls pulseaudio pulseaudio-alsa alsa-utils arc-gtk-theme
 
 ## Distribute config files
-mkdir -p $home/.config/i3
-cp config_files/i3config $home.config/i3/config
-cp config_files/i3blocks.conf $home.config/i3/i3blocks.conf
-cp config_files/Xresources $home.Xresources
-cp config_files/bashrc $home.bashrc
-cp config_files/vimrc $home.vimrc
-chown $user $home.config/i3/config $home.Xresources $home.bashrc
-mkdir -p $home.scripts
-cp -r scripts/* $home.scripts
+mkdir -v -p $home/.config/i3
+cp -v config_files/i3config $home.config/i3/config
+cp -v config_files/i3blocks.conf $home.config/i3/i3blocks.conf
+cp -v config_files/Xresources $home.Xresources
+cp -v config_files/bashrc $home.bashrc
+cp -v config_files/vimrc $home.vimrc
+mkdir -v -p $home.scripts
+cp -v -r scripts/* $home.scripts
+chown -v -R $user $home.config/i3/config $home.Xresources $home.bashrc $home.scripts
 
 ## Enable wifi applet
 systemctl enable NetworkManager.service
