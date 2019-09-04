@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #Regex of mount point to show space of
 #mount="\B\/\B" #root "/"

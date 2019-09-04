@@ -12,8 +12,8 @@ floating_modifier $mod
 ## PROGRAM VARIABLES ##
 #######################
 
-set $term     exec ~/.scripts/st.sh
-set $browser  exec firefox
+set $term     exec --no-startup-id ~/.scripts/st.sh
+set $browser  exec --no-startup-id firefox
 set $browser_class Firefox
 
 ####################
@@ -37,21 +37,21 @@ exec --no-startup-id $term math python\ -q -fn xft:monaco:pixelsize=24
 bindsym $mod+i [instance="math"] scratchpad show; [instance="math"] move position center
 
 # Password manager - $mod+p #
-for_window [instance="bitwarden"] floating enable
-for_window [instance="bitwarden"] resize set 800 900
-for_window [instance=bitwarden] move scratchpad
-bindsym $mod+p exec ~/.scripts/i3config/bitwarden.sh; [instance="bitwarden"] scratchpad show
+#for_window [instance="bitwarden"] floating enable
+#for_window [instance="bitwarden"] resize set 800 900
+#for_window [instance=bitwarden] move scratchpad
+#bindsym $mod+p exec ~/.scripts/i3config/bitwarden.sh; [instance="bitwarden"] scratchpad show
 
 ##########################
 ## PROGRAM KEY BINDINGS ##
 ##########################
 
 # Atom
-bindsym $mod+a exec atom
+bindsym $mod+a exec --no-startup-id atom
 for_window [class="Atom"] border pixel 0
 
 # Dmenu
-bindsym $mod+d exec dmenu_run -l 5
+bindsym $mod+d exec --no-startup-id dmenu_run -l 5
 
 # OneNote
 bindsym $mod+n exec p3x-onenote
@@ -142,19 +142,22 @@ bindsym $mod+b focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
+set $ws1 "1"
+set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws9 "9"
+set $ws10 "10"
+
+# Symbols 
+#    
 
 # Switch to workspace
-bindsym $mod+1 workspace $ws1; exec ~/.scripts/i3config/browser.sh
+bindsym $mod+1 workspace $ws1; exec --no-startup-id ~/.scripts/i3config/browser.sh
 bindsym $mod+2 workspace $ws2;
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
@@ -162,8 +165,8 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9; exec ~/.scripts/i3config/discord.sh
-bindsym $mod+0 workspace $ws10; exec ~/.scripts/i3config/config.sh
+bindsym $mod+9 workspace $ws9; exec --no-startup-id ~/.scripts/i3config/discord.sh
+bindsym $mod+0 workspace $ws10; exec --no-startup-id ~/.scripts/i3config/config.sh
 
 # Assign workspaces
 assign [class="$browser_class"] $ws1
@@ -212,14 +215,14 @@ bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
 	strip_workspace_numbers yes
-	font pango: inconsolata, Font Awesome 5 Free 11
+	font pango: inconsolata, Font Awesome 5 Free 9
 
         colors{
                background $background1
                separator  $accent2
                #                  Border        Background    Text
-               focused_workspace  $accent1      $background2  $text
-               inactive_workspace $background1  $background1  $background2
+               focused_workspace  $accent1         $background1  $text
+               inactive_workspace $background1  $background1  $text
                urgent_workspace   $notification $notification $text
         }
 }
@@ -243,16 +246,16 @@ exec --no-startup-id i3-msg 'workspace $ws2; $term Terminal'
 
 # WALLPAPER / EFFECTS
 exec --no-startup-id feh --randomize --bg-max ~/Pictures/*
-exec compton -f
+exec --no-startup-id compton -f
 
 #############
 ### Audio ###
 #############
 
 # Pulse Audio mechanical buttons config
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%; exec ~/.scripts/status/volume-run.sh #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%; exec ~/.scripts/status/volume-run.sh #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle; exec ~/.scripts/status/volume-run.sh # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%; exec --no-startup-id ~/.scripts/status/volume-run.sh #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%; exec --no-startup-id ~/.scripts/status/volume-run.sh #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle; exec --no-startup-id ~/.scripts/status/volume-run.sh # mute sound
 
 ########
 # MISC #
