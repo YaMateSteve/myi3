@@ -4,7 +4,7 @@ u!/bin/bash
 user=$SUDO_USER
 home=/home/$user/
 ## Downloads
-pacman -Sy intel-ucode xf86-input-libinput networkmanager network-manager-applet ttf-inconsolata otf-font-awesome dmenu acpi upower tlp ranger gedit compton feh lxappearance rxvt-unicode urxvt-perls pulseaudio pulseaudio-alsa alsa-utils arc-gtk-theme
+pacman -Sy intel-ucode xf86-input-libinput networkmanager network-manager-applet ttf-inconsolata otf-font-awesome dmenu acpi upower tlp ranger gedit compton feh lxappearance pulseaudio pulseaudio-alsa alsa-utils arc-gtk-theme
 
 ## Distribute config files
 mkdir -v -p $home/.config/i3
@@ -12,6 +12,7 @@ cp -v config_files/i3config $home.config/i3/config
 cp -v config_files/i3blocks.conf $home.config/i3/i3blocks.conf
 cp -v config_files/Xresources $home.Xresources
 cp -v config_files/bashrc $home.bashrc
+cp -v config_files/zshrc $home.zshrc
 cp -v config_files/vimrc $home.vimrc
 mkdir -v -p $home.scripts
 cp -v -r scripts/* $home.scripts
