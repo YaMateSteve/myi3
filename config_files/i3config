@@ -12,7 +12,7 @@ floating_modifier $mod
 ## PROGRAM VARIABLES ##
 #######################
 
-set $term     exec --no-startup-id ~/.scripts/st.sh
+set $term     ~/.scripts/st.sh
 set $browser  exec --no-startup-id firefox
 set $browser_class Firefox
 
@@ -22,10 +22,9 @@ set $browser_class Firefox
 
 # Dropdown terminal - $mod+u #
 for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] resize set 625 460
+for_window [instance="dropdown"] resize set 750 550
 for_window [instance="dropdown"] move scratchpad
 for_window [instance="dropdown"] border pixel 3
-exec --no-startup-id $term dropdown
 bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 
 # Math teminal (python shell) - $mod+i #
@@ -33,14 +32,7 @@ for_window [instance="math"] floating enable
 for_window [instance="math"] resize set 1000 500
 for_window [instance="math"] move scratchpad
 for_window [instance="math"] border pixel 3
-exec --no-startup-id $term math python\ -q -fn xft:monaco:pixelsize=24
 bindsym $mod+i [instance="math"] scratchpad show; [instance="math"] move position center
-
-# Password manager - $mod+p #
-#for_window [instance="bitwarden"] floating enable
-#for_window [instance="bitwarden"] resize set 800 900
-#for_window [instance=bitwarden] move scratchpad
-#bindsym $mod+p exec ~/.scripts/i3config/bitwarden.sh; [instance="bitwarden"] scratchpad show
 
 ##########################
 ## PROGRAM KEY BINDINGS ##
@@ -53,14 +45,11 @@ for_window [class="Atom"] border pixel 0
 # Dmenu
 bindsym $mod+d exec --no-startup-id dmenu_run -l 5
 
-# OneNote
-bindsym $mod+n exec p3x-onenote
-
 # Ranger
-bindsym $mod+r $term -e ranger
+bindsym $mod+r exec --no-startup-id $term -e ranger
 
 # Terminal
-bindsym $mod+Return $term Terminal
+bindsym $mod+Return exec --no-startup-id $term Terminal
 
 # Shutdown
 bindsym $mod+Shift+Delete exec $(shutdown -h now)
@@ -68,8 +57,10 @@ bindsym $mod+Shift+Delete exec $(shutdown -h now)
 # Restart
 bindsym $mod+Shift+Insert exec $(shutdown -r now)
 
+# Randomly cycle wallpaper
+bindsym $mod+Shift+b exec --no-startup-id feh --randomize --bg-max ~/Pictures/Wallpapers*
+
 for_window [class="Toplevel"] border pixel 0
-#for_window [class="Toplevel"] floating enable move right 361px, move up 54px
 for_window [class="Toplevel"] resize set 600 700
 
 
@@ -135,10 +126,10 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+b focus parent
+bindsym $mod+p focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+c focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -241,12 +232,17 @@ for_window [class="^.*"] border pixel 2
 ## START-UP PROGRAMS ##
 #######################
 
+
 exec --no-startup-id nm-applet
 exec --no-startup-id i3-msg 'workspace $ws2; $term Terminal'
 
 # WALLPAPER / EFFECTS
-exec --no-startup-id feh --randomize --bg-max ~/Pictures/*
+exec --no-startup-id feh --randomize --bg-max ~/Pictures/Wallpapers*
 exec --no-startup-id compton -f
+
+# SCCRATCHPADS
+exec --no-startup-id $term dropdown
+exec --no-startup-id $term math python\ -q -fn xft:monaco:pixelsize=24
 
 #############
 ### Audio ###

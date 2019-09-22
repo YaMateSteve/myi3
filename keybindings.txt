@@ -5,8 +5,8 @@ ______General_Keys_______
 
 $mod + Return = Terminal
 $mod + a = Atom
-$mod + b = Focus parent
-$mod + c =
+$mod + b = 
+$mod + c = Focus child
 $mod + d = Dmenu
 $mod + e =
 $mod + f =
@@ -19,7 +19,7 @@ $mod + l =
 $mod + m =
 $mod + n =
 $mod + o =
-$mod + p =
+$mod + p = Focus parent
 
 _________Layout__________
 

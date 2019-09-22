@@ -1,0 +1,56 @@
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+#export ZSH=$HOME/.oh-my-zsh
+
+export ZSH=/usr/share/oh-my-zsh
+
+# Set theme
+#ZSH_THEME="random"
+ZSH_THEME="steeef"
+#ZSH_THEME="af-magic"
+#ZSH_THEME="cloud"
+#ZSH_THEME="theunraveler"
+
+
+
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# Common Commands
+alias ls='ls --color=auto'
+# Pacman
+alias uu="sudo backup && sudo pacman -Syu"
+alias s="pacman -Ss"
+alias d="sudo pacman -S"
+alias rmorphan="sudo pacman -Rns $(pacman -Qtdq)"
+
+alias cab403="cd ~/Uni/cab403/tutorials"
+alias mxb100="cd ~/Uni/mxb100"
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias cleandwm="make clean && rm config.h && git reset --hard origin/master"
+
+
+
+# To add colour to less.... But only colours man... I'm clueless.. 
+export LESS=-R
+export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
+export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
+export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
+export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
+export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
+export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
+export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
