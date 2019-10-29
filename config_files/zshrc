@@ -8,8 +8,8 @@ export ZSH=/usr/share/oh-my-zsh
 
 # Set theme
 #ZSH_THEME="random"
-ZSH_THEME="steeef"
-#ZSH_THEME="af-magic"
+#ZSH_THEME="steeef"
+ZSH_THEME="af-magic"
 #ZSH_THEME="cloud"
 #ZSH_THEME="theunraveler"
 
@@ -38,7 +38,7 @@ alias s="pacman -Ss"
 alias d="sudo pacman -S"
 alias rmorphan="sudo pacman -Rns $(pacman -Qtdq)"
 
-alias cab403="cd ~/Uni/cab403/tutorials"
+alias cab403="cd ~/Uni/cab403/MajorAss"
 alias mxb100="cd ~/Uni/mxb100"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cleandwm="make clean && rm config.h && git reset --hard origin/master"

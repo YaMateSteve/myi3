@@ -237,7 +237,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id i3-msg 'workspace $ws2; $term Terminal'
 
 # WALLPAPER / EFFECTS
-exec --no-startup-id feh --randomize --bg-max ~/Pictures/Wallpapers*
+exec --no-startup-id feh --randomize --bg-max ~/Pictures/Wallpapers/o1dh8cl05af31.jpg
 exec --no-startup-id compton -f
 
 # SCCRATCHPADS
