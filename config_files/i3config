@@ -20,6 +20,8 @@ set $browser_class Firefox
 ## POP UP WINDOWS ##
 ####################
 
+# Pop up windows are started upon boot, see "START-UP PROGRAMS" below.
+
 # Dropdown terminal - $mod+u #
 for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] resize set 750 550
@@ -56,6 +58,9 @@ bindsym $mod+Shift+Delete exec $(shutdown -h now)
 
 # Restart
 bindsym $mod+Shift+Insert exec $(shutdown -r now)
+
+# Take screenshot
+bindsym $mod+Shift+s exec --no-startup-id maim --select ~/Pictures/Screenshots/$(date "+%d-%m-%Y_%T").png
 
 # Randomly cycle wallpaper
 bindsym $mod+Shift+b exec --no-startup-id feh --randomize --bg-max ~/Pictures/Wallpapers*
@@ -232,7 +237,6 @@ for_window [class="^.*"] border pixel 2
 ## START-UP PROGRAMS ##
 #######################
 
-
 exec --no-startup-id nm-applet
 exec --no-startup-id i3-msg 'workspace $ws2; $term Terminal'
 
@@ -240,7 +244,7 @@ exec --no-startup-id i3-msg 'workspace $ws2; $term Terminal'
 exec --no-startup-id feh --randomize --bg-max ~/Pictures/Wallpapers/o1dh8cl05af31.jpg
 exec --no-startup-id compton -f
 
-# SCCRATCHPADS
+# SCRATCHPADS
 exec --no-startup-id $term dropdown
 exec --no-startup-id $term math python\ -q -fn xft:monaco:pixelsize=24
 
