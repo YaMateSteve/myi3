@@ -8,13 +8,13 @@ charging=$(echo $battery | awk '{print $3}' | egrep -c [C]+[a-z]*)
 bat_percent=$(echo $battery | awk '{print $4}' | egrep -o "[1-9]+[0-9]{0,2}.{1}|Full")
 bat=$(echo $battery | awk '{print $4}' | egrep -o "[0-9][0-9]{0,2}")
 
-if [ $charging == 1 ]; then 
+if [ $charging == 1 ]; then
 	sym=""
-else 
+else
 	sym=""
 fi
 
 echo "$sym $bat_percent"
 
 
-# Symbols              
+# Symbols           
