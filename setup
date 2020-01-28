@@ -6,27 +6,27 @@ home=/home/$user/
 
 ## Downloads
 
-# Intel-ucode	          Microcode update files for Intel CPUs
-# xf86-input-libinput     Generic input driver for the X.Org server based on libinput
-# networkmanager          Network connection manager and user applications
-# network-manager-applet  Applet for managing network connections
-# ttf-inconsolata         Monospace font for pretty code listings and for the terminal
-# otf-font-awesome        Iconic font designed for Bootstrap
-# demenu                  Fast and lightweight dynamic menu for X
 # acpi                    Client for battery, power, and thermal readings
-# tlp                     Linux Advanced Power Management
-# ranger                  Simple, vim-like file manager
-# gedit                   GNOME Text Editor
-# compton                 X compositor that may fix tearing issues (Needed for transparency)
-# feh                     Fast and light imlib2-based image viewer (Need for desktop background)
-# lxappearance            Feature-rich GTK+ theme switcher of the LXDE Desktop
-# pulseaudio              A featureful, general-purpose sound server
-# pulseaudio-alsa         ALSA Configuration for PulseAudio
 # alsa-utils              An alternative implementation of Linux sound support
 # arc-gtk-theme           A flat theme with transparent elements for GTK 3, GTK 2 and Gnome-Shell
+# demenu                  Fast and lightweight dynamic menu for X
+# feh                     Fast and light imlib2-based image viewer (Need for desktop background)
+# gedit                   GNOME Text Editor
+# Intel-ucode	          Microcode update files for Intel CPUs
+# lxappearance            Feature-rich GTK+ theme switcher of the LXDE Desktop
 # maim                    Utility to take a screenshot using imlib2
+# network-manager-applet  Applet for managing network connections
+# networkmanager          Network connection manager and user applications
+# otf-font-awesome        Iconic font designed for Bootstrap
+# picom                   X compositor that may fix tearing issues (Replaces Compton. Needed for transparency)
+# pulseaudio              A featureful, general-purpose sound server
+# pulseaudio-alsa         ALSA Configuration for PulseAudio
+# ranger                  Simple, vim-like file manager
+# ttf-inconsolata         Monospace font for pretty code listings and for the terminal
+# tlp                     Linux Advanced Power Management
+# xf86-input-libinput     Generic input driver for the X.Org server based on libinput
 
-pacman -Syu intel-ucode xf86-input-libinput networkmanager network-manager-applet ttf-inconsolata otf-font-awesome dmenu acpi tlp ranger gedit compton feh lxappearance pulseaudio pulseaudio-alsa alsa-utils arc-gtk-theme maim
+pacman -Syu intel-ucode xf86-input-libinput networkmanager network-manager-applet ttf-inconsolata otf-font-awesome dmenu acpi tlp ranger gedit picom feh lxappearance pulseaudio pulseaudio-alsa alsa-utils arc-gtk-theme maim
 
 ## Distribute config files
 mkdir -v -p $home/.config/i3
