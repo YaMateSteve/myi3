@@ -13,6 +13,3 @@ set showcmd
 " turn hybrid line numbers on
 :set number relativenumber
 :set nu rnu
-
-" Run xrdb when editing Xresources
-	autocmd BufWritePost ~/.Xresources !xrdb %
